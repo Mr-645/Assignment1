@@ -4,4 +4,8 @@
 2. Go to the `/src` folder and run `main.cpp`.
 ## Report
 ![Fully built prototype](/20190508_095920.jpg)
-
+# *Work in progress*
+### Introduction
+Blah blah
+### Design
+blah
