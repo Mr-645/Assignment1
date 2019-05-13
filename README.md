@@ -1,7 +1,7 @@
 # Assignment 1 - Bubble display
 ## USAGE INSTRUCTIONS
-Blah blah blah
-Go to the `/src` folder and run `main.cpp`.
+1. Go to [this link](https://github.com/Mr-645/Assignment1/tree/master/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano)
+2. Go to the `/src` folder and run `main.cpp`.
 ## Report
-rgjkerngjkengke
 ![Fully built prototype](/20190508_095920.jpg)
+
