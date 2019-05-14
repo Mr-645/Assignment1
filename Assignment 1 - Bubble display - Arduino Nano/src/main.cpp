@@ -57,20 +57,20 @@ void setup(){
   int displayType = COMMON_CATHODE; //Your display is either common cathode or common anode
     //This pinout is for a bubble dispaly
        //Declare what pins are connected to the GND pins (cathodes)
-       int digit1 = 10; //Pin 1
-       int digit2 = 12; //Pin 10
-       int digit3 = 11; //Pin 4
-       int digit4 = A0; //Pin 6
+       int digit1 = 10; 
+       int digit2 = 12; 
+       int digit3 = 11; 
+       int digit4 = A0;
        
        //Declare what pins are connected to the segments (anodes)
-       int segA = A1; //Pin 12
-       int segB = A2; //Pin 11
-       int segC = 4; //Pin 3
-       int segD = 5; //Pin 8
-       int segE = 6; //Pin 2
-       int segF = 7; //Pin 9
-       int segG = 8; //Pin 7
-       int segDP= 9; //Pin 5
+       int segA = A1; 
+       int segB = A2; 
+       int segC = 4; 
+       int segD = 5; 
+       int segE = 6; 
+       int segF = 7; 
+       int segG = 8; 
+       int segDP= 9; 
    
   int numberOfDigits = 4; //Do you have a 1, 2 or 4 digit display?
 
