@@ -16,7 +16,7 @@
 
 *Rules*:
 - Time measurement precision (max. 100ms in a 10s timespan)
-- Proof the working debouncing of your buttons <span style="background-color: #FFFF00">REFER TO THE VIDEO FOR THIS PROOF<span/>
+- Proof the working debouncing of your buttons <span style="background-color: #FFFF00">`REFER TO THE VIDEO FOR THIS PROOF`<span/>
 - No delay() function
 - Use of external interrupts
 - Use the provided MOSFETs as the provided uC-Boards IOs can only
@@ -30,7 +30,7 @@ Bubble display is of type `Common Cathode` ... this means ...
 
 These is the pin configuration ...
 
-This is how the timing works ... you only need these variables ... <span style="background-color: #FFFF00">source code is in appendix<span/>
+This is how the timing works ... you only need these variables ... <span style="background-color: #FFFF00">`source code is in appendix`<span/>
 ```C
 // Main timing stuff starts here
   //Pressed start
@@ -70,7 +70,7 @@ This is how the timing works ... you only need these variables ... <span style="
 	
 Microcontroller and bubble display can only handle so much current ...
 
-Microcontroller can only source/sink this much ... bubble display can only handle 5 mA per segment ... adequate brightness achieved at x potentiometer resistance. <span style="background-color: #FFFF00">Datasheet is in appendix</span>
+Microcontroller can only source/sink this much ... bubble display can only handle 5 mA per segment ... adequate brightness achieved at x potentiometer resistance. <span style="background-color: #FFFF00">`Datasheet is in appendix`</span>
 
 For circit safety ... potentiometer ... resistors in series with each anode (330 Ω)...
 
