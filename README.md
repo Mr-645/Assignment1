@@ -4,7 +4,7 @@
 2. Go to the `/src` folder and run `main.cpp`.
 ## REPORT
 
-### <u>Project purpose and general description</u>
+### <span style="text-decoration: underline;">Project purpose and general description</span>
 
 **Make a Stopwatch** using a microcontroller, buttons, and a 7-segment array [Bubble display].
 
@@ -17,19 +17,19 @@
 
 *Rules*:
 - Time measurement precision (max. 100ms in a 10s timespan)
-- Proof the working debouncing of your buttons //REFER TO THE VIDEO FOR THIS PROOF
+- Proof the working debouncing of your buttons <mark style="background-color: #FFFF00">`REFER TO THE VIDEO FOR THIS PROOF`<mark/>
 - No delay() function
 - Use of external interrupts
 - Use the provided MOSFETs as the provided uC-Boards IOs can only
 sink and source a limited current
 
-### <u>Description of design process steps</u>
+### <span style="text-decoration: underline;">Description of design process steps</span>
 
 Bubble display is of type `Common Cathode` ... this means ...
 
 These is the pin configuration ...
 
-This is how the timing works ... you only need these variables ... <mark>source code is in appendix<mark/>
+This is how the timing works ... you only need these variables ... <mark style="background-color: #FFFF00">source code is in appendix<mark/>
 ```C
 // Main timing stuff starts here
   //Pressed start
@@ -62,11 +62,12 @@ This is how the timing works ... you only need these variables ... <mark>source 
   // Main timing stuff stops here
 ```
 	
-### <u>Component choice and Schematic</u>
+### <span style="text-decoration: underline;">Component choice and Schematic</span>
+
 	
 Microcontroller and bubble display can only handle so much current ...
 
-Microcontroller can only source/sink this much ... bubble display can only handle 5 mA per segment ... adequate brightness achieved at x potentiometer resistance. <mark>Datasheet is in appendix</mark>
+Microcontroller can only source/sink this much ... bubble display can only handle 5 mA per segment ... adequate brightness achieved at x potentiometer resistance. <mark style="background-color: #FFFF00">Datasheet is in appendix</mark>
 
 For circit safety ... potentiometer ... resistors in series with each anode (330 Ω)...
 
@@ -75,7 +76,7 @@ For reliable performance ... pulldown resistors on mosfet gates (5.6 kΩ)
 <img src="/Circuit.jpg" alt="Schematic" width="200">
 <img src="/3D_view.jpg" alt="Schematic" width="200">
 
-### <u>Limitations of project and potential improvments</u>
+### <span style="text-decoration: underline;">Limitations of project and potential improvements</span>
 Blah
-### <u>Appendix</u>
+### <span style="text-decoration: underline;">Appendix</span>
 Blah
