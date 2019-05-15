@@ -61,30 +61,39 @@ This is how the timing works ... you only need these variables ... <span style="
 
 ### Component choice and Schematic
 
-Microcontroller and bubble display can only handle so much current ...
+The Arduino Nano microcontroller and the bubble display can only handle so much current. 
 
-Microcontroller can only source/sink this much ... bubble display can only handle 5 mA per segment ... adequate brightness achieved at x potentiometer resistance. <span style="background-color: #FFFF00">`Datasheet is in appendix`
+The Nano can only handle 20 mA per pin, and 200 mA overall.
+The bubble display can only handle 5 mA per segment and 0.5 mA per segment provides adequate brightness.
+<span style="background-color: #FFFF00">`Datasheet is in appendix`
 
-For circit safety ... potentiometer ... resistors in series with each anode (330 Ω)...
+For circit safety I put a potentiometer in series in the GND line (source pins of the mosfets). What I did was dial the resistance down to control the current flow (and thereby the brightness) until adequate brightness was achieved [the potentiometer resistance value is and the current flow was].
 
-For reliable performance ... pulldown resistors on mosfet gates (5.6 kΩ)
+I put resistors in series for each anode (330 Ω) for extra safety.
 
-<img src="/Circuit.jpg" alt="Schematic" width="600">
+For reliable performance I installed pulldown resistors on the mosfet gates (5.6 kΩ). The concern was with the potential for segment flickering during startup.
+
+<img src="/Circuit.jpg" alt="Schematic">
 <img src="/3D_view.jpg" alt="3D view" width="600">
 
 ---
 
 ### Limitations of project and potential improvements
-It worked really well most of the time.
-Sometimes there are unidentifiable glitches when a button press happens
+It worked really well most of the time. The timing, and displaying values to the screen is perfect. Unfortunately, sometimes a glitch happens when a button is pressed. 
+
+The glitch is: the microcontroller registers a hardware interrupt and flashes the LED for debounce indication, but it doesn't run the code in the function (refer to this time point).
+
+I don't know how I'll implement an improvement to this system to sort out the glitch.
 
 ---
 
 ### Appendix
-#### Datasheet
+#### Datasheet and reference
 
 <!---<img src="/datasheet.png" alt="Datasheet" width="500" border="5">--->
-The datasheet (BB_QDSP_DS.pdf) is available [here](/BB_QDSP_DS.pdf)
+The Bubble display datasheet (BB_QDSP_DS.pdf) is available [here](/BB_QDSP_DS.pdf)
+
+An infographic for the Nano is available [here](https://i.pinimg.com/736x/c4/87/21/c487213e9081fb0050878a02304e5693.jpg), it shows current capability too. 
 
 #### Source code of non-testing version of programme
 The source code (main.cpp) is available [here](/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano/src/main.cpp)
