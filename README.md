@@ -8,7 +8,7 @@
 **Make a Stopwatch** using a microcontroller, buttons, and a 7-segment array [Bubble display].
 
 <!---![Fully built prototype](/20190508_095920.jpg)--->
-<img src="/Fully_built_prototype.jpg" alt="Fully built prototype" width="200">
+<img src="/Fully_built_prototype.jpg" alt="Fully built prototype" width="600">
 
 *Criteria*: 
 1. One `RESET` button + One `START/STOP` button
@@ -69,8 +69,8 @@ For circit safety ... potentiometer ... resistors in series with each anode (330
 
 For reliable performance ... pulldown resistors on mosfet gates (5.6 kΩ)
 
-<img src="/Circuit.jpg" alt="Schematic" width="200">
-<img src="/3D_view.jpg" alt="3D view" width="200">
+<img src="/Circuit.jpg" alt="Schematic" width="600">
+<img src="/3D_view.jpg" alt="3D view" width="600">
 
 ---
 
@@ -83,7 +83,8 @@ Sometimes there are unidentifiable glitches when a button press happens
 ### Appendix
 #### Datasheet
 
-<img src="/datasheet.png" alt="Datasheet" width="500">
+<!---<img src="/datasheet.png" alt="Datasheet" width="500" border="5">--->
+The datasheet (BB_QDSP_DS.pdf) is available [here](/BB_QDSP_DS.pdf)
 
 #### Source code of non-testing version of programme
-The source code (main.cpp) is available [here](https://github.com/Mr-645/Assignment1/blob/master/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano/src/main.cpp)
+The source code (main.cpp) is available [here](/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano/src/main.cpp)
