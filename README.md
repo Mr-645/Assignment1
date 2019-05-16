@@ -1,7 +1,7 @@
 # Assignment 1 - Bubble display
 ## USAGE INSTRUCTIONS
 1. Download and install the [Adafruit BMP085 Library](https://github.com/adafruit/Adafruit-BMP085-Library) for use with your Arduino compatible board.
-2. If your setup is like mine (MOSFETs for the cathodes), find the `SevSeg.cpp` file of library and make [these]() modifications.
+2. If your setup is like mine (MOSFETs for the cathodes), find the `SevSeg.cpp` file of library and make [these](https://github.com/Mr-645/Assignment1#changes-to-sevsegcpp) modifications.
 3. Download [this folder](https://github.com/Mr-645/Assignment1/tree/master/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano) (Assign 2 - Bubble Display - Arduino Nano) to get the Arduino sketch/C-programme
 4. Navigate to the `/src` folder and run `main.cpp`.
 ## REPORT
@@ -61,9 +61,10 @@ if(mode == COMMON_ANODE)
     SegOff = HIGH;
   }
   else {
-  //THE CHANGE WAS MADE HERE
-	DigitOn = HIGH;
+  //-----------------------THE CHANGE WAS MADE BETWEEN HERE
+    DigitOn = HIGH;
     DigitOff = LOW;
+  //-----------------------AND HERE
     SegOn = HIGH;
     SegOff = LOW;
   }
