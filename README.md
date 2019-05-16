@@ -135,9 +135,9 @@ For reliable performance I installed pulldown resistors on the mosfet gates (5.6
 ---
 
 ### Limitations of project and potential improvements
-It worked really well most of the time. The timing, and displaying values to the screen is perfect. Unfortunately, sometimes a glitch happens when a button is pressed. 
+It worked really well most of the time. The timing, and the aspect of displaying values to the screen is perfect. Unfortunately, sometimes a glitch happens when a button is pressed. It doesn't happen very often, but it's not very rare either. 
 
-The glitch is: the microcontroller registers a hardware interrupt and flashes the LED for debounce indication, but it doesn't run the code in the function (refer to this time point).
+The glitch is: the microcontroller registers a hardware interrupt and flashes the LED for debounce indication, but it doesn't run the code in the function.
 
 I don't know how I'll implement an improvement to this system to sort out the glitch.
 
