@@ -1,7 +1,9 @@
 # Assignment 1 - Bubble display
 ## USAGE INSTRUCTIONS
-1. Go to [this folder](https://github.com/Mr-645/Assignment1/tree/master/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano) (Assign 2 - Bubble Display - Arduino Nano)
-2. Go to the `/src` folder and run `main.cpp`.
+1. Download and install the [Adafruit BMP085 Library](https://github.com/adafruit/Adafruit-BMP085-Library) for use with your Arduino compatible board.
+2. If your setup is like mine (MOSFETs for the cathodes), find the `SevSeg.cpp` file of library and make [these]() modifications.
+3. Download [this folder](https://github.com/Mr-645/Assignment1/tree/master/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano) (Assign 2 - Bubble Display - Arduino Nano) to get the Arduino sketch/C-programme
+4. Navigate to the `/src` folder and run `main.cpp`.
 ## REPORT
 ### Project purpose and general description
 
@@ -26,11 +28,63 @@ sink and source a limited current
 
 ### Description of design process steps
 
-Bubble display is of type `Common Cathode` ... this means ... had to modify .cpp file of library to make it compliant with my system
+The Bubble display is of the type `Common Cathode`. This means that every segment in a single digit shares a ground pin (a cathode is a negative pin). What this equates to is that in order to turn off an entire digit, all you need to do is disconnect its ground. The [Adafruit BMP085 Library](https://github.com/adafruit/Adafruit-BMP085-Library) can take care of this for you.
 
-These is the pin configuration ...
+The only problem was that: we weren't driving the common-cathode 7-segment array in the fashion that the library expected. The library expected a direct connection, but we had MOSFETs between the array's negative pins and the GND rail (the MOSFETs were a requirement due to the microcontroller's limited current handling capabilities). 
 
-This is how the timing works ... you only need these variables ... <span style="background-color: #FFFF00">`source code is in appendix`</span>
+With a direct connection, the microcontroller set a `logic low` on the cathode (GND) pins of the array, but because of the MOSFETs, we needed the microcontroller to put out a `logic high` instead. So, a modification of the `SevSeg.cpp` file of library was required in order to make it compliant. 
+
+#### Changes to <SevSeg.cpp>
+The code segment we need to change lies around the line number 100 mark. It looked like this:
+```C
+if(mode == COMMON_ANODE)
+  {
+    DigitOn = HIGH;
+    DigitOff = LOW;
+    SegOn = LOW;
+    SegOff = HIGH;
+  }
+  else {
+    DigitOn = LOW;
+    DigitOff = HIGH;
+    SegOn = HIGH;
+    SegOff = LOW;
+  }
+```
+It was changed to this:
+```C
+if(mode == COMMON_ANODE)
+  {
+    DigitOn = HIGH;
+    DigitOff = LOW;
+    SegOn = LOW;
+    SegOff = HIGH;
+  }
+  else {
+  //THE CHANGE WAS MADE HERE
+	DigitOn = HIGH;
+    DigitOff = LOW;
+    SegOn = HIGH;
+    SegOff = LOW;
+  }
+``` 
+
+#### Pin choice
+I needed two pins with hardware interrupt capability to handle button presses. The Arduino Nano only has two hardware interrupt pins and they're both 'Digital Pins'. The 7-segment array is run by multiplexing its pins (a digital process). If I was to use only the digital pins for the array, I would have run since there are only so many of those pins. 
+
+Fortunately most of the analogue pins could be used as digital pins so I ended up using the A0, A1, and A2 pins of the Nano for the array. There was no need for changing a configuration setting of any sort. The usage of the analogue pins was in the same way as it was with the digital pins. All that was required was pin declaration in the setup function with the digital pins.
+
+#### Programme logic for making the stopwatch work properly
+This code below is the heart of the stopwatch functionality. You only need three variables to do it.
+
+The variables are:
+```C
+//Global variables
+uint32_t startTimePoint = 0; //Point at which the stopwatch starts from a reset or the microcontroller turning on
+uint32_t timeWhilstStopped = 0; //Tracks end time points for the latest stopped time period
+uint32_t TimeOfStopWatch = 0; //Tracks the end time point for the latest run time period
+```
+This is the logic:
 ```C
 // Main timing stuff starts here
   //Pressed start
@@ -67,9 +121,9 @@ The Nano can only handle 20 mA per pin, and 200 mA overall.
 The bubble display can only handle 5 mA per segment and 0.5 mA per segment provides adequate brightness.
 <span style="background-color: #FFFF00">`Datasheet is in appendix`
 
-For circit safety I put a potentiometer in series in the GND line (source pins of the mosfets). What I did was dial the resistance down to control the current flow (and thereby the brightness) until adequate brightness was achieved [the potentiometer resistance value is and the current flow was].
+For circit safety I put a potentiometer in series in the GND line (source pins of the mosfets). What I did was dial the resistance down to control the current flow (and thereby the brightness) until adequate brightness was achieved. The pot resistance was 330 Ω.
 
-I put resistors in series for each anode (330 Ω) for extra safety.
+Initially I put resistors in series for each anode (330 Ω) but considered removing them once I installed the potentiometer, eventually I left them in for extra safety.
 
 For reliable performance I installed pulldown resistors on the mosfet gates (5.6 kΩ). The concern was with the potential for segment flickering during startup.
 
