@@ -148,7 +148,7 @@ I don't know how I'll implement an improvement to this system to sort out the gl
 <!---<img src="/datasheet.png" alt="Datasheet" width="500" border="5">--->
 The Bubble display datasheet (BB_QDSP_DS.pdf) is available [here](/BB_QDSP_DS.pdf)
 
-An infographic for the Nano is available [here](https://i.pinimg.com/736x/c4/87/21/c487213e9081fb0050878a02304e5693.jpg), it shows current capability too. 
+An infographic for the Nano is available [here](https://i.pinimg.com/736x/c4/87/21/c487213e9081fb0050878a02304e5693.jpg), it shows pin type information and current capability too. 
 
 #### Source code of non-testing version of programme
 The source code (main.cpp) is available [here](/Assignment%201%20-%20Bubble%20display%20-%20Arduino%20Nano/src/main.cpp)
