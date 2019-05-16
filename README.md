@@ -1,3 +1,4 @@
+Prab Singh - 2121645<br>MG7013 - Embedded Systems<br>16 May 2019
 # Assignment 1 - Bubble display
 ## USAGE INSTRUCTIONS
 1. Download and install the [Adafruit BMP085 Library](https://github.com/adafruit/Adafruit-BMP085-Library) for use with your Arduino compatible board.
